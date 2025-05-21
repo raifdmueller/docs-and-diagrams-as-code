@@ -1,0 +1,39 @@
+= {project-name} Architektur
+
+== Übersicht
+
+[plantuml]
+----
+@startuml
+' Hier Ihr Architektur-Diagramm einfügen
+@enduml
+----
+
+== Komponenten
+
+=== {component-name}
+
+.Verantwortlichkeiten
+* Punkt 1
+* Punkt 2
+
+.Schnittstellen
+* Interface 1
+* Interface 2
+
+== Entscheidungen
+
+=== {decision-title}
+
+.Status
+* Vorgeschlagen | Akzeptiert | Abgelehnt | Ersetzt
+
+.Kontext
+_Beschreiben Sie den Kontext der Entscheidung..._
+
+.Entscheidung
+_Beschreiben Sie die getroffene Entscheidung..._
+
+.Konsequenzen
+* Positiv: ...
+* Negativ: ...

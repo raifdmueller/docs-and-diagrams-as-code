@@ -1,0 +1,28 @@
+= Grundlagen
+
+== AsciiDoc Basics
+
+=== Text formatieren
+
+* *Fett*
+* _Kursiv_
+* `Monospace`
+* #Markiert#
+
+=== Listen
+
+* Punkt 1
+* Punkt 2
+** Unterpunkt 2.1
+** Unterpunkt 2.2
+
+=== Code-Blöcke
+
+[source,java]
+----
+public class Hello {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+----

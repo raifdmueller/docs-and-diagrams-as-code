@@ -1,0 +1,33 @@
+= Diagramm-Beispiele
+
+== PlantUML Beispiel
+
+[plantuml]
+----
+@startuml
+actor User
+User -> System: Request
+System --> User: Response
+@enduml
+----
+
+== Mermaid Beispiel
+
+[mermaid]
+----
+graph TD
+    A[Start] --> B{Entscheidung}
+    B -->|Ja| C[OK]
+    B -->|Nein| D[Abbruch]
+----
+
+== Graphviz Beispiel
+
+[graphviz]
+----
+digraph G {
+    A -> B
+    B -> C
+    C -> A
+}
+----

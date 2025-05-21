@@ -1,0 +1,9 @@
+= Dokumentation & Übungen
+
+Willkommen bei den Docs-as-Code und Diagrams-as-Code Übungen!
+
+== Inhalt
+
+* xref:basics.adoc[Grundlagen]
+* xref:advanced.adoc[Fortgeschrittene Techniken]
+* xref:exercises.adoc[Übungen]

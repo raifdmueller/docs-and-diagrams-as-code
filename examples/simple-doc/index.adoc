@@ -1,0 +1,39 @@
+= Beispiel-Dokumentation
+
+Ein einfaches Beispiel für eine technische Dokumentation.
+
+== Architektur
+
+[plantuml]
+----
+@startuml
+package "Frontend" {
+    [Web UI]
+}
+
+package "Backend" {
+    [API]
+    [Database]
+}
+
+[Web UI] --> [API]
+[API] --> [Database]
+@enduml
+----
+
+== API-Dokumentation
+
+=== Endpunkte
+
+[cols="1,2,2"]
+|===
+|Endpunkt |Methode |Beschreibung
+
+|`/api/users`
+|GET
+|Liste aller Benutzer
+
+|`/api/users/{id}`
+|GET
+|Details eines Benutzers
+|===

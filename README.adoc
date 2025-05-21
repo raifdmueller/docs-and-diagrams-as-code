@@ -1,0 +1,25 @@
+= Docs-as-Code und Diagrams-as-Code Übungen
+
+Dieses Repository enthält Übungen und Beispiele für Docs-as-Code und Diagrams-as-Code mit AsciiDoc.
+
+== Übersicht
+
+Das Repository ist wie folgt strukturiert:
+
+* `/docs` - Hauptdokumentation und Übungen
+* `/diagrams` - Verschiedene Diagramm-Beispiele (PlantUML, Mermaid, etc.)
+* `/examples` - Komplette Beispielprojekte
+* `/templates` - Wiederverwendbare Vorlagen
+
+== Erste Schritte
+
+1. Klone das Repository
+2. Installiere AsciiDoctor: `gem install asciidoctor`
+3. Installiere die Diagramm-Werkzeuge:
+   * PlantUML: https://plantuml.com/starting
+   * Graphviz: https://graphviz.org/download/
+   * Mermaid CLI (optional): `npm install -g @mermaid-js/mermaid-cli`
+
+== Lizenz
+
+Dieses Projekt steht unter der MIT-Lizenz.
