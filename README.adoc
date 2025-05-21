@@ -1,25 +1,34 @@
-= Docs-as-Code und Diagrams-as-Code Übungen
+= Docs-as-Code und Diagrams-as-Code Übungen mit docToolchain
 
-Dieses Repository enthält Übungen und Beispiele für Docs-as-Code und Diagrams-as-Code mit AsciiDoc.
+Dieses Repository enthält Übungen für Docs-as-Code und Diagrams-as-Code mit docToolchain und AsciiDoc.
 
-== Übersicht
+== Struktur
 
-Das Repository ist wie folgt strukturiert:
+* `/src/docs` - Hauptdokumentation
+* `/src/docs/exercises` - Praktische Übungen
+* `/src/docs/arc42` - Architektur-Dokumentation nach arc42
+* `/src/docs/diagrams` - Diagramme (PlantUML, Mermaid, etc.)
+* `/src/docs/config` - Konfigurationsdateien
 
-* `/docs` - Hauptdokumentation und Übungen
-* `/diagrams` - Verschiedene Diagramm-Beispiele (PlantUML, Mermaid, etc.)
-* `/examples` - Komplette Beispielprojekte
-* `/templates` - Wiederverwendbare Vorlagen
+== Setup
 
-== Erste Schritte
+1. docToolchain installieren:
+   ```bash
+   wget https://github.com/docToolchain/docToolchain/releases/download/v2.0.0/docToolchain-2.0.0.zip
+   unzip docToolchain-2.0.0.zip
+   ./docToolchain
+   ```
 
-1. Klone das Repository
-2. Installiere AsciiDoctor: `gem install asciidoctor`
-3. Installiere die Diagramm-Werkzeuge:
-   * PlantUML: https://plantuml.com/starting
-   * Graphviz: https://graphviz.org/download/
-   * Mermaid CLI (optional): `npm install -g @mermaid-js/mermaid-cli`
+2. Projekt initialisieren:
+   ```bash
+   ./docToolchain init
+   ```
 
-== Lizenz
+3. Dokumentation generieren:
+   ```bash
+   ./docToolchain generateHTML
+   ```
 
-Dieses Projekt steht unter der MIT-Lizenz.
+== Übungen
+
+Siehe `/src/docs/exercises/README.adoc` für eine Übersicht aller Übungen.
