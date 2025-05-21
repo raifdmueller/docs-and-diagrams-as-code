@@ -1,0 +1,43 @@
+= Übung 5: Continuous Documentation
+
+== Aufgaben
+
+=== 5.1 GitHub Actions Pipeline
+
+1. Erstellen Sie eine GitHub Actions Pipeline für die Dokumentation
+2. Automatisieren Sie die HTML-Generierung
+3. Implementieren Sie Qualitätsprüfungen
+
+.Beispiel GitHub Actions Workflow:
+[source,yaml]
+----
+name: Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Install docToolchain
+        run: |
+          wget https://github.com/docToolchain/docToolchain/releases/download/v2.0.0/docToolchain-2.0.0.zip
+          unzip docToolchain-2.0.0.zip
+      - name: Generate Documentation
+        run: ./docToolchain generateHTML
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/html5
+----

@@ -1,0 +1,78 @@
+= Deployment
+
+== Infrastruktur
+
+[plantuml]
+----
+@startuml
+skinparam rectangle {
+    roundCorner 25
+}
+
+cloud "AWS Cloud" {
+    rectangle "VPC" {
+        rectangle "Public Subnet" {
+            [Load Balancer] as lb
+        }
+        
+        rectangle "Private Subnet" {
+            rectangle "ECS Cluster" {
+                [API Gateway Container] as gateway
+                [User Service Container] as users
+                [Order Service Container] as orders
+            }
+            
+            rectangle "RDS" {
+                [User DB] as userdb
+                [Order DB] as orderdb
+            }
+        }
+    }
+}
+
+lb --> gateway
+gateway --> users
+gateway --> orders
+users --> userdb
+orders --> orderdb
+@enduml
+----
+
+== Deployment-Prozess
+
+[plantuml]
+----
+@startuml
+skinparam activity {
+    BackgroundColor LightGreen
+    BorderColor Black
+    FontName Arial
+}
+
+start
+
+:Git Push;
+
+fork
+    :Build Images;
+    :Push to ECR;
+ fork again
+    :Run Tests;
+    :Quality Gates;
+ end fork
+
+:Deploy to ECS;
+
+:Health Checks;
+
+if (Health OK?) then (yes)
+    :Update DNS;
+    :Success Notification;
+else (no)
+    :Rollback;
+    :Failure Notification;
+endif
+
+stop
+@enduml
+----

@@ -1,0 +1,12 @@
+= Microservice Dokumentation
+Version 1.0, {docdate}
+:toc: left
+:icons: font
+
+== Übersicht
+
+Dieses Beispiel zeigt die Dokumentation eines Microservice-Systems.
+
+include::architecture.adoc[]
+include::api.adoc[]
+include::deployment.adoc[]

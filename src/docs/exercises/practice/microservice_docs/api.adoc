@@ -1,0 +1,51 @@
+= API-Dokumentation
+
+== User Service API
+
+=== Benutzer anlegen
+
+.Request
+[source,http]
+----
+POST /api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "max.mustermann",
+    "email": "max@example.com",
+    "firstName": "Max",
+    "lastName": "Mustermann"
+}
+----
+
+.Response
+[source,http]
+----
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "username": "max.mustermann",
+    "email": "max@example.com"
+}
+----
+
+=== Prozessablauf
+
+[plantuml]
+----
+@startuml
+participant "Client" as C
+participant "API Gateway" as G
+participant "User Service" as U
+database "User DB" as D
+
+C -> G: POST /api/users
+G -> U: Create User
+U -> D: Insert User
+D --> U: Success
+U --> G: User Created
+G --> C: 201 Created
+@enduml
+----

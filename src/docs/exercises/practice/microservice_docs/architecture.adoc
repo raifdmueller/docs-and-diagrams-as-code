@@ -1,0 +1,59 @@
+= Architektur
+
+== Komponentenübersicht
+
+[plantuml]
+----
+@startuml
+skinparam componentStyle uml2
+
+cloud "Frontend" {
+    [Web Application] as web
+    [Mobile App] as mobile
+}
+
+node "API Layer" {
+    [API Gateway] as gateway
+    [Auth Service] as auth
+}
+
+node "Core Services" {
+    [User Service] as users
+    [Order Service] as orders
+    [Inventory Service] as inventory
+}
+
+database "Data Layer" {
+    [User DB] as userdb
+    [Order DB] as orderdb
+    [Inventory DB] as invdb
+}
+
+web --> gateway
+mobile --> gateway
+
+gateway --> auth
+gateway --> users
+gateway --> orders
+gateway --> inventory
+
+users --> userdb
+orders --> orderdb
+inventory --> invdb
+
+orders ..> inventory : check stock
+orders ..> users : validate user
+@enduml
+----
+
+== Service-Beschreibungen
+
+=== API Gateway
+* Zentrale Anlaufstelle für alle Client-Anfragen
+* Routing und Load Balancing
+* Rate Limiting und Caching
+
+=== Auth Service
+* OAuth2/JWT-basierte Authentifizierung
+* Rollenbasierte Zugriffskontrolle
+* Session Management
